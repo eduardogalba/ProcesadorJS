@@ -1,0 +1,26 @@
+var boolean root;
+function boolean conces1on_Pre5tamo_v18A (boolean user, int tasa) {
+	var int a;
+	if (user) return (a == 0);
+	if (tasa == 13) return (a==0);
+}
+function int calcular_saldo(int saldo) {
+	/* Llamando al servicio concesion de prestamos */
+	if (conces1on_Pre5tamo_v18A(root, 10)) {
+		return 89909;
+	} else {
+		output 'No se concede ningun prestamo';
+	}
+}
+function int main (void) {
+	output 'Introduzca su 
+	saldo'
+	;
+	input saldo;
+	if (saldo == 0) output 'No se concede prestamo';
+	
+	ret = calcular_saldo(saldo);
+	output ret;
+
+	return ret;
+}

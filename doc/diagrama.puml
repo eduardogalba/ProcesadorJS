@@ -1,0 +1,171 @@
+@startuml
+
+!define AN_LEXICO "AN_LEXICO"
+!define AN_SEMANTICO "AN_SEMANTICO"
+!define ERROR_ESCRITURA "ERROR_ESCRITURA"
+
+class AnalizadorSemantico {
+    -TablaSimbolos tablaActual
+    -TablaSimbolos tablaGlobal
+    -TablaSimbolos tablaLocal
+    -AccionSemantica[] acciones
+    +void iniciar()
+    +Lista obtenerAtributos(Integer estadosCima, Lista attrsCima)
+    +Lista accionSemantica(Lista atributos)
+    +void destroyTSGlobal()
+    +ElementoHash buscaTS(String lexema)
+    +ElementoHash insertarTS(String lexema)
+    +void setZonaDecl(boolean zona)
+}
+
+class GestorErrores {
+    -TablaHash errores
+    -TablaHash tokens
+    -BufferedWriter erroresWriter
+    -int numLinea
+    +void error(int estado, Object[] arguments)
+    +void error(String token, Lista esperados)
+    +void newLine()
+}
+
+class MatrixLoader {
+    +TransitionMatrix loadMatrix(String analizador) throws MatrixDoesNotExistException, InvalidMatrixException
+}
+
+
+class Simbolo {
+    -String lexema
+    -String tipo
+    -Integer despl
+    -Integer numParams
+    -String[] tipoParams
+    -String[] modoParams
+    -String tipoRetorno
+    -String etiqueta
+    +Object get()
+    +void set()
+}
+
+class TablaSimbolos {
+    -TablaHash simbolos
+    -int nivel
+    -String nombreTabla
+    -static BufferedWriter simbWriter
+    +Object insertar()
+    +void obtener()
+    +void exportar()
+    +void destroy()
+}
+
+class TablaGOTO {
+    -TablaHash gotoTable
+    -TablaHash actionTable
+    -Regla[] reglas
+    +AccionSintactica getAction(Token token, int estado)
+    +int ruleSteps(int regla)
+    +int goTo(int estado, int regla)
+    +Lista posiblesTokens(int estado)
+    +String tokenIntermedio(String tokenPost, int estado)
+}
+
+class TransitionMatrix {
+    -int[][] data
+    -int nEstados
+    -int nEstadosIntermedios
+    +boolean isFinal(int estado)
+    +boolean isError(int estado)
+    +int getEstado(int estado, int simbolo)
+}
+
+class TablaPR {
+    -TablaHash palabrasReservadas
+    +ElementoHash buscar(String lexema)
+}
+
+class AnalizadorLexico {
+    -AutomataFD automata
+    -TablaPR tablaPR
+    +Token getToken()
+}
+
+class Token {
+    -String tipo
+    -ElementoHash posTS
+    +String getTipo()
+    +ElementoHash getPosTS()
+}
+
+class Regla {
+    -String antecedente
+    -int nTokens
+    +String getAntecedente()
+    +int getNTokens()
+}
+
+class AccionSintactica {
+    -int estado
+    -char accion
+    +int getEstado()
+    +char getAccion()
+}
+
+class GOTOTableLoader {
+    +TablaGOTO loadGOTOTable()
+}
+
+class AnalizadorSintactico {
+    -AnalizadorLexico anLexico
+    -AnalizadorSemantico anSemantico
+    -TablaGOTO tablaGOTO
+    -Token pideToken()
+    +void analizar()
+}
+
+class AutomataFD {
+    -TransitionMatrix estados
+    -TransitionMatrix acciones
+    -int estadoActual
+    -char accionActual
+    +void reset()
+    +int nextEstado(char simbolo)
+    +int nextAccion(char simbolo)
+}
+
+class AccionSemantica {
+    -Lista estados
+    -String accion
+    +String getAccionSemantica(Lista secuenciaEstados)
+}
+
+class AccionesSemanticasLoader {
+    +AccionSemantica[] loadAcciones()
+}
+
+class PR {
+    -String lexema
+    +void getLexema()
+}
+
+AutomataFD --> TransitionMatrix
+TransitionMatrix --> MatrixLoader
+AnalizadorSintactico --> AnalizadorLexico
+AnalizadorSintactico --> AnalizadorSemantico
+AnalizadorSintactico --> TablaGOTO
+AnalizadorSintactico --> TablaSimbolos
+AnalizadorSintactico --> GestorErrores
+AnalizadorSemantico --> TablaSimbolos
+AnalizadorSemantico --> GestorErrores
+AnalizadorSemantico --> AccionesSemanticasLoader
+AnalizadorLexico --> TablaPR
+AnalizadorLexico --> AutomataFD
+AnalizadorLexico --> GestorErrores
+AnalizadorLexico --> TablaSimbolos
+AccionesSemanticasLoader --> AccionSemantica
+GOTOTableLoader --> AccionSintactica
+TablaSimbolos --> Simbolo
+TablaGOTO --> Regla
+TablaGOTO --> Token
+TablaGOTO --> GOTOTableLoader
+TablaPR --> PR
+
+@enduml

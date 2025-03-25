@@ -1,0 +1,22 @@
+public int void main (string args) {
+  int a, b;
+  /* TODO: 
+        Interfaz chula */
+  output 'Se va realizar un pequeño test'
+  output 'Introduzca número 1: '
+  input a;
+	
+  output 'Introduzca número 2: '
+  input b;
+  
+  output 'Se va realizar operación AND'
+  
+  c = operac10n_AnD(a,b);
+
+  output c
+
+}
+
+boolean operacion_AND(int a, int b) {
+  return a & b;
+}

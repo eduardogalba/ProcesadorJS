@@ -1,0 +1,7 @@
+var int d;
+var boolean f;
+f = (d==7); d=(e+9);
+function void imprimir (int a, int b) {
+    a &= b;
+    input a;
+}

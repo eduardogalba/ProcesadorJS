@@ -1,0 +1,3 @@
+Error : Analizador Sintactico : linea 1 : Se esperaba uno de los siguientes tokens: ) y se ha encontrado { 
+Error : Analizador Semantico : linea 6 : Llamada a un funcion [suma] no declarada previamente 
+Error : Analizador Semantico : linea 24 : Las sentencias return deben ir dentro de las funciones 

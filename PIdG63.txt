@@ -1,0 +1,17 @@
+var string texto;
+function void put  (string msg_)
+{
+	output msg_;
+}
+function void pideTexto  (void)
+{
+	output 'Introduce un texto';
+	input texto;
+}
+pideTexto();
+var  string  textoAux;textoAux = texto;
+put
+ (
+ textoAux                                                    
+ )
+ ;

@@ -1,0 +1,1 @@
+Error : Analizador Semantico : linea 6 : En ambos lados de la asignacion con operador &= deben ser valores enteros. En cambio el valor de a es ent y su valor asignado ent 

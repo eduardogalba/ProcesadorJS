@@ -1,0 +1,22 @@
+var int a;
+
+function boolean operac10n_AnD(int a, int b) {
+	var boolean d;
+	d &= (a == 1);d &= (b == 0);
+	return d;
+}
+
+function void main (string args) {
+  var int b; 
+  /* TODO: 
+        Interfaz chula */
+  output 'Realizar un pequeño test';
+  output 'Introduce número 1: ';
+  input a;
+  output 'Introduce número 2: ';
+  input b;
+
+  var boolean c;
+  c = operac10n_AnD(a,b);
+  if (c) output 'Verdadero';
+}

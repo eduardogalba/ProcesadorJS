@@ -1,0 +1,10 @@
+var int user;
+
+function void procesar_cadena (string cad) {
+    output(cad);
+    eliminArEspaci0s(cad);
+}
+
+function int main (string args) {
+    procesar_cadena(args);
+}

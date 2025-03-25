@@ -1,0 +1,24 @@
+var boolean a;
+function int multiplicacion (int a, int pos, int m) {
+    /* No se dispone de la operacion resta */
+	if (pos == m) {
+		return 0;
+	} else {
+		return a + multiplicacion (	a	, 
+		pos +1			, 
+		m
+						);
+	}
+}
+function int main (void) {
+	var int a;a = 15;
+	output 'Introduzca el numero a multiplicar';
+	input a;
+	output 'Cuantas veces se repite?';
+	input m;
+	a = multiplicacion(a
+	, 0, 
+	m);
+	return a;
+}
+

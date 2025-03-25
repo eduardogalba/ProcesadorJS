@@ -1,0 +1,14 @@
+var boolean e;
+function boolean fun (boolean a, boolean b) {
+    if (a&&b) {
+        var boolean c;
+        return c;
+    } else {
+        var boolean d;
+        if (b&&d) {
+            return a;
+        } else {
+            return e&&a;
+        }
+    }
+}

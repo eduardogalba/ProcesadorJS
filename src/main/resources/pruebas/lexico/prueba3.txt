@@ -1,0 +1,25 @@
+public int main (void) {
+	
+	a = 15;
+	
+	output 'Introduzca el numero a multiplicar'
+	input a
+	
+	output 'Cuantas veces se repite?'
+	input m
+	
+	int a = multiplicacion(a, m);
+	
+	output a
+	
+	return a;
+}
+
+private int multiplicacion (float a, int pos, int m) {
+    /* No se dispone de la operacion resta */
+	if (pos == m) {
+		return 0;
+	} else {
+		return a + multiplicacion (a, pos + 1, m);
+	}
+}

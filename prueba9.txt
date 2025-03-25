@@ -1,0 +1,15 @@
+var string root;
+
+function void conceder_permiso (void) {}
+
+function int generar_password(void) {
+    return 928938432;
+}
+
+function int main (string args) {
+    var string user;
+    if (root) {
+        conceder_permiso();
+        generar_password();
+    }
+}

@@ -1,0 +1,98 @@
+ID	SUMA	DOBLEEQ	DOBLEAND	ASIGAND	ASIG	PARENTIZDA	PARENTDCHA	LLAVEIZDA	LLAVEDCHA	PYC	COMA	FUNCTION	VAR	RETURN	IF	ELSE	INT	BOOLEAN	STRING	VOID	ENTERO	CADENA	OUTPUT	INPUT	$
+d9	 	 	 	 	 	 	 	 	 	 	 	d8	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	r3
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	a
+d9	 	 	 	 	 	 	 	 	 	 	 	d8	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	r3
+d9	 	 	 	 	 	 	 	 	 	 	 	d8	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	r3
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d16	d17	d18	 	 	 	 	 	 
+ 	 	 	 	 	 	d19	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r7	 	 	 	 	 	 	 	 	r7	 	 	r7	r7	r7	r7	 	 	 	 	 	 	 	r7	r7	r7
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d16	d17	d18	d23	 	 	 	 	 
+ 	 	 	 	d25	d24	d26	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+d36	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	r36	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r1
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r2
+d39	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r22	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r23	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r24	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+d42	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r9	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r14	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r15	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+d32	 	 	 	 	 	d31	r32	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+ 	 	 	d48	 	 	 	 	 	 	d47	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	d49	r38	 	 	 	r38	 	 	r38	r38	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	d50	r40	r40	 	 	 	r40	 	 	r40	r40	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	r42	r42	r42	 	 	 	r42	 	 	r42	r42	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+ 	r43	r43	r43	 	 	d52	r43	 	 	r43	r43	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	r45	r45	r45	 	 	 	r45	 	 	r45	r45	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	r47	r47	r47	 	 	 	r47	 	 	r47	r47	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	d53	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	d54	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	d48	 	 	 	 	 	 	r35	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	d55	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	d48	 	 	 	d56	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	d58	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	r10	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	d48	 	 	 	 	 	 	d59	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	d48	 	 	 	 	 	 	d60	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	d61	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	d48	 	 	 	r34	 	 	 	d63	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r28	 	 	 	 	 	 	 	 	r28	 	 	r28	r28	r28	r28	 	 	 	 	 	 	 	r28	r28	r28
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+ 	 	 	d48	 	 	 	d67	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	r32	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+r29	 	 	 	 	 	 	 	 	r29	 	 	r29	r29	r29	r29	 	 	 	 	 	 	 	r29	r29	r29
+r30	 	 	 	 	 	 	 	 	r30	 	 	r30	r30	r30	r30	 	 	 	 	 	 	 	r30	r30	r30
+r4	 	 	 	 	 	 	 	 	r4	 	 	r4	r4	r4	r4	 	 	 	 	 	 	 	r4	r4	r4
+d9	 	 	 	 	 	 	 	d69	 	 	 	 	 	d12	 	 	 	 	 	 	 	 	d10	d11	 
+ 	 	 	 	 	 	 	 	d71	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d16	d17	d18	d74	 	 	 	 	 
+r25	 	 	 	 	 	 	 	 	r25	 	 	r25	r25	r25	r25	 	 	 	 	 	 	 	r25	r25	r25
+r26	 	 	 	 	 	 	 	 	r26	 	 	r26	r26	r26	r26	 	 	 	 	 	 	 	r26	r26	r26
+ 	 	 	 	 	 	 	 	 	 	d75	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	r31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d32	 	 	 	 	 	d31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d33	d34	 	 	 
+ 	 	d49	r37	 	 	 	r37	 	 	r37	r37	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	r39	r39	 	 	 	r39	 	 	r39	r39	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	r41	r41	r41	 	 	 	r41	 	 	r41	r41	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	r44	r44	r44	 	 	 	r44	 	 	r44	r44	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	d77	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d9	 	 	 	 	 	 	 	 	r13	 	 	 	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	 
+r6	 	 	 	 	 	 	 	 	r6	 	 	r6	r6	r6	r6	 	 	 	 	 	 	 	r6	r6	r6
+d9	 	 	 	 	 	 	 	 	r13	 	 	 	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	 
+ 	 	 	 	 	 	 	d81	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d82	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	r17	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r27	 	 	 	 	 	 	 	 	r27	 	 	r27	r27	r27	r27	 	 	 	 	 	 	 	r27	r27	r27
+ 	 	 	d48	 	 	 	r34	 	 	 	d63	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	r46	r46	r46	 	 	 	r46	 	 	r46	r46	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	d84	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d9	 	 	 	 	 	 	 	 	r13	 	 	 	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	 
+ 	 	 	 	 	 	 	 	 	d86	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	r11	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	r19	 	 	 	d88	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	r33	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r21	 	 	 	 	 	 	 	 	r21	 	 	r21	r21	r21	r21	d90	 	 	 	 	 	 	r21	r21	r21
+ 	 	 	 	 	 	 	 	 	r12	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r8	 	 	 	 	 	 	 	 	 	 	 	r8	r8	r8	r8	 	 	 	 	 	 	 	r8	r8	r8
+ 	 	 	 	 	 	 	r16	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	d16	d17	d18	 	 	 	 	 	 
+r5	 	 	 	 	 	 	 	 	r5	 	 	r5	r5	r5	r5	 	 	 	 	 	 	 	r5	r5	r5
+ 	 	 	 	 	 	 	 	d92	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d93	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+d9	 	 	 	 	 	 	 	 	r13	 	 	 	d5	d12	d6	 	 	 	 	 	 	 	d10	d11	 
+ 	 	 	 	 	 	 	r19	 	 	 	d88	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	 	 	d96	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+ 	 	 	 	 	 	 	r18	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+r20	 	 	 	 	 	 	 	 	r20	 	 	r20	r20	r20	r20	 	 	 	 	 	 	 	r20	r20	r20

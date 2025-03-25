@@ -1,0 +1,79 @@
++-------------------+       +-------------------+       +-------------------+
+|   AnalizadorLexico|       |   AutomataFD      |       |   TransitionMatrix|
++-------------------+       +-------------------+       +-------------------+
+| - tablaPR         |       | - matrizTransicion|       | - data            |
+| - tablaSimbolos   |       | - estadoActual    |       | - nEstados        |
+| - gestorErrores   |       | - accionActual    |       | - nEstadosIntermed|
+| - automataFD      |       | - acciones        |       +-------------------+
++-------------------+       +-------------------+       | + getnEstados()    |
+| + analizar()      |       | + getEstado()     |       | + getnEstadosInter|
+| + procesarCaracter|       | + nextEstado()    |       | + isFinal()        |
+| + analizarIdent() |       | + getAccion()     |       | + isError()        |
+| + buscaTS()       |       | + nextAccion()    |       | + getEstado()      |
+| + insertaTS()     |       | + esFinal()       |       +-------------------+
+| + buscaTPR()      |       | + esError()       |
+| + generarToken()  |       | + reset()         |
++-------------------+       +-------------------+
+        |                           |
+        |                           |
+        v                           v
++-------------------+       +-------------------+
+|   TablaPR         |       |   MatrixLoader    |
++-------------------+       +-------------------+
+| - palabrasReservad|       |                   |
++-------------------+       +-------------------+
+| + buscar()        |       | + loadMatrix()    |
++-------------------+       +-------------------+
+        |
+        |
+        v
++-------------------+
+|   PR              |
++-------------------+
+| - lexema          |
++-------------------+
+| + getLexema()     |
++-------------------+
+
++-------------------+       +-------------------+
+|   TablaSimbolos   |       |   GestorErrores   |
++-------------------+       +-------------------+
+| - simbolos        |       | - errores         |
+| - numSimbolos     |       | - erroresWriter   |
++-------------------+       | - numLinea        |
+| + buscar()        |       +-------------------+
+| + insertar()      |       | + error()         |
+| + exportar()      |       | + close()         |
+| + destroy()       |       | + newLine()       |
++-------------------+       +-------------------+
+        |
+        |
+        v
++-------------------+
+|   Simbolo         |
++-------------------+
+| - lexema          |
+| - tipo            |
+| - despl           |
+| - numParams       |
+| - tipoParams      |
+| - modoParams      |
+| - tipoRetorno     |
+| - etiqueta        |
++-------------------+
+| + getLexema()     |
+| + setTipo()       |
+| + getTipo()       |
+| + setDespl()      |
+| + getDespl()      |
+| + setNumParams()  |
+| + getNumParams()  |
+| + setTipoParams() |
+| + getTipoParams() |
+| + getModoParams() |
+| + setModoParams() |
+| + setTipoRetorno()|
+| + getTipoRetorno()|
+| + setEtiqueta()   |
+| + getEtiqueta()   |
++-------------------+

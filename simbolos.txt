@@ -1,0 +1,34 @@
+TABLA PRINCIPAL # 0 : 
+* LEXEMA : 'd'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		2
+* LEXEMA : 'f'
+  Atributos : 
+  + tipo : 		'log'
+  + despl : 		6
+* LEXEMA : 'e'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		8
+* LEXEMA : 'imprimir'
+  Atributos : 
+  + tipo : 		'tipo_error'
+   + numParam : 		2
+    + TipoParam01 : 'ent'
+     + ModoParam01 : '1'
+    + TipoParam02 : 'ent'
+     + ModoParam02 : '1'
+    + Tipo de retorno : 'vacio'
+   + EtiqFuncion : 'etiq_imprimir'
+------------------------------
+TABLA de la FUNCION imprimir # 1 : 
+* LEXEMA : 'a'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		0
+* LEXEMA : 'b'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		2
+------------------------------

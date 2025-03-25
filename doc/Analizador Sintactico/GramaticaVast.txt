@@ -1,0 +1,54 @@
+Terminales = { var id ; if ( ) { } function void , else int boolean string = &= output input return && == + ent cad }
+NoTerminales = { P B F T E C I S F1 F2 F3 H A K L X Q R U V }
+
+Axioma = P
+
+Producciones = {
+P -> B P
+P -> F P
+P -> lambda
+B -> var T id ;
+B -> if ( E ) { C } I
+B -> if ( E ) S
+B -> S
+F -> function F1 F2 F3 { C }
+F1 -> H
+F2 -> id
+F3 -> ( A )
+C -> B C
+C -> lambda
+H -> T 
+H -> void
+A -> T id K
+A -> void
+K -> , T id K
+K -> lambda
+I -> else { C }
+I -> lambda
+T -> int
+T -> boolean
+T -> string
+S -> id = E ;
+S -> id &= E ;
+S -> id ( L ) ;
+S -> output E ;
+S -> input id ;
+S -> return X ;
+L -> E Q
+L -> lambda
+Q -> , E Q
+Q -> lambda
+X -> E
+X -> lambda
+E -> E && R
+E -> R
+R -> R == U 
+R -> U
+U -> U + V
+U -> V
+V -> id
+V -> ( E )
+V -> ent
+V -> id ( L )
+V -> cad
+	}

@@ -1,0 +1,5 @@
+Error : Analizador Lexico : linea 7 : No se reconoce el operador '%' 
+Error : Analizador Lexico : linea 8 : El numero '839482' ha excedido los 16 bits 
+Error : Analizador Lexico : linea 8 : No se reconoce el operador '%' 
+Error : Analizador Lexico : linea 9 : No se reconoce el operador '& ' 
+Error : Analizador Lexico : linea 12 : La cadena 'Esta cadena tiene mas de 64 caracteres y puedo demostrarlo haciendo esto.' ha excedido los 64 caracteres 

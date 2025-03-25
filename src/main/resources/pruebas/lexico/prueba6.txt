@@ -1,0 +1,23 @@
+public int main (string args) {
+
+	output 'Cuál es la base?'
+	input &base;
+	
+	output 'Cuál es el exponente?'
+	input &exp;
+	
+	ret = potencia(base, exp);
+	bits = bits(ret);
+	
+	output 'Resultado : ' + ret 
+	
+	return ret;
+}
+
+int potencia (int base, int exp) {
+	if (exp == 0) {
+		return 1;
+	} else {
+		return multiplicacion(base, base) + potencia(base, exp-1);
+	}
+}

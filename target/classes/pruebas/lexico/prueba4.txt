@@ -1,0 +1,24 @@
+function int main (void) {
+	
+	output 'Introduzca su saldo'
+	;
+	input saldo
+	
+	if (saldo == 0) {
+		output 'No se concede prestamo';
+	}
+	
+	calcular_saldo(saldo);
+}
+
+fuction int calcular_saldo(string usuario, int saldo) {
+	int tasa = 13;
+	/* Llamando al servicio concesion de prestamos */
+	boolean concede = conces1on_Pre5tamo_v18A(usuario, tasa);
+	
+	if (concede) {
+		return 899099514;
+	} else {
+		output 'En estos momentos la entidad no puede concederte ningun prestamo';
+	}
+}

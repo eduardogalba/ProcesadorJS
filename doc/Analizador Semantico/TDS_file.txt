@@ -1,0 +1,431 @@
+
+- Revisa las notas y busca:
+-------------------------ATENCION-----------------------------
+
+P -> B P
+P -> F P
+P -> lambda
+B -> var T id ;
+B -> if ( E ) { C } I
+B -> if ( E ) S
+B -> S
+F -> function F1 F2 F3 { C }
+F1 -> H
+F2 -> id
+F3 -> ( A )
+C -> B C
+C -> lambda
+H -> T 
+H -> void
+A -> T id K
+A -> void
+K -> , T id K
+K -> lambda
+I -> else { C }
+I -> lambda
+T -> int
+T -> boolean
+T -> string
+S -> id = E ;
+S -> id &= E ;
+S -> id ( L ) ;
+S -> output E ;
+S -> input id ;
+S -> return X ;
+L -> E Q
+L -> lambda
+Q -> , E Q
+Q -> lambda
+X -> E
+X -> lambda
+E -> E && R
+E -> R
+R -> R == U 
+R -> U
+U -> U + V
+U -> V
+V -> id
+V -> ( E )
+V -> ent
+V -> id ( L )
+V -> cad
+
+BEGIN MISSING
+/* PREGUNTA : Pensandolo bien, en nuestro caso ¿sera zona de declaracion en todo el codigo? */
+P' -> {TSG := CrearTS(), TSA := TSG, desplG := 0, zonaDecl := false} 
+P {destruirTS(TSG)}
+
+P -> B {if (B.tipoRet != vacio) {
+					Error('Las sentencias return solo pueden ir dentro de las funciones')
+					then tipo_err
+		}
+		} P {}
+		
+P -> F P {}
+P -> lambda {}
+END MISSING
+
+B -> var {zonaDecl := true} 
+T id ; {insertaTipoTS(id.pos, T.tipo),
+		B.tipo := 
+			if (TSA = TSG) {
+				insertaDesplTS(id.pos, desplG)
+				desplG += T.ancho
+				then tipo_ok
+			} else {
+				insertaDesplTS(id.pos, desplL)
+				desplL += T.ancho
+				then tipo_ok
+			}
+		}, 
+		zonaDecl := false}
+
+B -> if ( E ) { C } I {B.tipo := 
+					if (E.tipo = log) {
+						if (C.tipo = tipo_err) {
+							then tipo_err
+						} else if (I.tipo = tipo_err) {
+							then tipo_err
+						} else {
+							then tipo_ok 
+					} else {
+						Error('En las sentencias condicionales, se necesita
+						una condicion logica, en vez de E.tipo')
+						then tipo_err
+					},
+					B.tipoRet := if (C.tipoRet = vacio) 
+									then I.tipoRet
+								else {
+									if (C.tipoRet = I.tipoRet) {
+										then I.tipoRet
+									} else {
+										then tipo_err
+									}
+								}
+					}
+
+B -> if ( E ) S {B.tipo := 
+				if (E.tipo = log) {
+					then S.tipo 
+				} else {
+					Error('En las sentencias condicionales, se necesita
+					una condicion logica, en vez de E.tipo')
+					then tipo_err
+				},
+				B.tipoRet := S.tipoRet
+				}
+
+B -> S {B.tipo := S.tipo, B.tipoRet := S.tipoRet}
+
+
+/* PREGUNTA: ¿Que pasa si intento definir dos funciones con mismo nombre */ 1
+/* 
+	RESPUESTA: El lexico ejecuta accion semantica, encuentra dos identificadores iguales, produce error semantico
+	y a la vez deberia generar el token ficticio para continuar el analisis
+*/
+F -> function F1 {TSL := CrearTS(), TSA := TSL, desplL := 0} 
+		F2 {insertaTipoRetTS(F2.pos, F1.tipo), insertaEtiqTS(F2.pos, nuevaEtiqueta())}
+		F3 {insertaTipoParamsTS (F2.pos, F3.tipoParams), 
+		insertaNParamsTS (F2.pos, F3.nParams),
+		insertaModoParamsTS(F2.pos, F3.modoParams)} 
+		{ C } {F.tipo := 
+				if (C.tipo = tipo_err) { /* No repetir mensaje */
+					then tipo_err			
+				} else if (C.tipoRet = tipo_err) { /* No repetir mensaje */
+					then tipo_err
+				} else if (C.tipoRet != F1.tipo && C.tipoRet != vacio) {
+					/* 
+						Esto es porque no necesariamente debe haber un return en la funcion
+						por tanto C podria ser vacio y no igual al tipo de retorno
+					*/
+					Error('La funcion debe devolver F1.tipo pero esta
+					devolviendo C.tipoRet')
+					then tipo_err
+				} else {
+					then funcion
+				},	
+			destruirTS(TSL), TSA := TSG}
+
+F1 -> H {F1.tipo := H.tipo}
+
+F2 -> id {F2.pos = id.pos}
+
+F3 -> 
+( A ) {F3.tipoParams := A.tipoParams, 
+	F3.nParams = A.nParams, 
+	F3.modoParams := A.modoParams
+	}
+
+C -> B C1 {C.tipo := 
+			if (B.tipo = tipo_err)
+				then tipo_err
+			else
+				then C1.tipo
+			C.tipoRet :=
+				if (B.tipoRet = vacio) 
+					then C1.tipoRet
+				else {
+					if (B.tipoRet = C1.tipoRet) {
+						then C1.tipoRet
+					} else {
+						then tipo_err
+					}
+				}
+			}
+			
+C -> lambda {C.tipo := tipo_ok, C.tipoRet := vacio}
+
+H -> T {H.tipo := T.tipo}
+
+H -> void {H.tipo := vacio}
+
+/* PREGUNTA: Los errores de insertar identificadores ¿que tipo de errores son? ¿Semanticos? Efectivamente. (Transpas. GE)*/
+
+A -> T {zonaDecl := true} id  
+K {id.tipo := insertaTipoTS(id.pos, T.tipo), 
+	insertaDesplTS(id.pos, desplL),
+	desplL += T.ancho,
+	A.tipoParams := push(T.tipo, K.tipoParams), 
+	A.nParams = K.nParams + 1,
+	A.modoParams := push(modo_valor, K.modoParams),
+	zonaDecl := false
+	}  
+
+ /* Mas ineficiente pero mas comodo como terminador NULL */
+ /* Evitar conflcitos de alineamiento */
+A -> void {A.tipoParams = push(vacio, nuevaLista()), 
+	A.nParams = 0, 
+	A.modoParams = push(modo_valor, nuevaLista()),
+	zonaDecl := false
+	}
+
+/* 
+PREGUNTA: Creo que esto no es eficiente. De haber errores semanticos, el analizador lexico ejecuta acciones 
+semanticas tambien y reporta los errores. ¿Entonces como se comportan el resto? Sobre todo, el semantico porque
+al sintactico le puedo engañar
+*/
+K -> , T {zonaDecl := true} id 
+K1 {id.tipo := insertaTipoTS(id.pos, T.tipo), 
+	insertaDesplTS(id.pos, desplL),
+	desplL += T.ancho,
+	K.tipoParams := push(T.tipo, K1.tipoParams), 
+	K.nParams = K1.nParams + 1,
+	K.modoParams := push(modo_valor, K1.modoParams)
+	}
+
+/* Mas ineficiente pero mas comodo */
+K -> lambda {K.tipoParams = nuevaLista(), K.nParams = 0, K.modoParams = nuevaLista ()} 
+
+I -> else { C } {I.tipo := C.tipo, I.tipoRet := C.tipoRet} 
+/* 
+	Aqui simplemente si hay un error se esta propagando 
+	NOTA: El error se imprimira en C = tipo_err 
+*/
+
+I -> lambda {I.tipo := tipo_ok, I.tipoRet := vacio}
+
+T -> int {T.tipo := ent, T.ancho := 2}
+
+/* ¿Por que no log? ¿Como lo diferencias entonces? */
+
+T -> boolean {T.tipo := log, T.ancho := 2}
+
+T -> string {T.tipo := cad, T.ancho := 128}
+
+S -> id = E ; {id.tipo := buscaTipoTS(id.pos)
+			S.tipo :=
+				if (id.tipo = E.tipo) {
+					then tipo_ok
+				} else {
+					Error ('Ambos lados de la asignacion deben ser del mismo tipo.
+                        En cambio el valor de id es idTipo y su valor asignado Etipo')
+						then tipo_err
+				},
+			S.tipoRet := vacio
+			}
+				
+S -> id &= E ; {id.tipo := buscaTipoTS(id.pos)
+				S.tipo := 
+					if (id.tipo = E.tipo) {
+						if (E.tipo = log) {
+							then tipo_ok
+						} else {
+							Error('En ambos lados de la asignacion con operador '&=' deben ser valores enteros.
+							En cambio el valor de id es idTipo y su valor asignado Etipo')
+							then tipo_err
+						}
+					} else {
+						Error ('Ambos lados de la asignacion deben ser del mismo tipo.
+                        En cambio el valor de id es idTipo y su valor asignado Etipo')
+						then tipo_err
+					},
+				S.tipoRet := vacio
+				}
+/* **Esta accion no es correcta, el tipo de retorno solo puede ser por return, el resto vacio*/
+/* 
+	Recontracomentario: Las sentencias S su tipo es tipo_error o tipo_ok y las llamadas a una funcion
+	posteriormente se sustituye por su valor de retorno, por eso, otro atributo. Además, no se encuentra
+	en zona de declaracion por tanto si no se encuentra en ninguna tabla entonces existe un error ¿tipo?.
+	Creo que tipo semantico y devuelve tipo_error 
+*/
+
+/* Segun entiendo esto es una sentencia de llamada a una funcion en la que no se recoge valor de retorno 
+	por lo que no tiene nada de sentido lo anterior, solo comprobar si la llamada es correcta
+*/
+
+S -> id 
+( L ) ; {S.tipoParams = buscaTipoParams(id.pos)
+		S.nParams = buscaNParams(id.pos),
+		S.tipo := if (id.tipo != funcion) {
+					insertaTipoTS(id.pos, tipo_err)
+					Error('Llamada una funcion que no ha sido declarada previamente')
+					then tipo_err
+				}
+				else if (S.nParams != L.nParams) {
+					Error('El numero de argumentos no corresponde con los definidos en esta funcion')
+					then tipo_err
+				}
+				
+				for (i = 0; i < S.nParams; i++) {
+					if (L.tipoParams(i) = tipo_err) {
+						then tipo_err
+					} else if (S.tipoParams(i) != L.tipoParams(i)) {
+						Error('El tipo de los argumentos no corresponde con los definidos en esta funcion')
+						then tipo_err
+					}
+				}
+				
+				then tipo_ok,
+		S.tipoRet := vacio
+		}
+
+/* Comprueba bien los tipos porque aqui no pueden ser booleanos y segun tu diseño no puedes distinguirlos */
+/* Resuelto: Necesario tipo log, no hay conflicto entonces*/
+
+S -> output E ; {S.tipo := 
+					if (E.tipo pertenece {ent, cad}) 
+						then tipo_ok
+					else {
+						Error('Las operaciones de salida solo admiten enteros
+						o cadenas, no se permite E.tipo')
+						then tipo_err
+					},
+				S.tipoRet := vacio
+				}
+
+		/* Mismo conflicto que asignacion simple y declaracion previa de variables */
+		/* Resuelto: se encuentra en zona de declaracion, el lexico esta avisado */
+		
+S -> input id ; {id.tipo := buscaTipoTS(id.pos), 
+	S.tipo := if (id.tipo pertenece {ent, cad} 
+				then tipo_ok
+			else {
+				Error('Las operaciones de entrada solo admiten enteros
+					o cadenas, no se permite id.tipo')
+				then tipo_err
+			}
+	S.tipoRet := vacio
+	}
+
+/* PREGUNTA: ¿Podria entonces haber sentencias return en cualquier parte del codigo? Solo tiene sentido en funciones */
+S -> return X ; {S.tipo := 
+					if (X.tipoRet = tipo_err) {
+						then tipo_err
+					} else { 
+						tipo_ok
+					},
+				S.tipoRet := X.tipoRet
+				}
+				
+L -> E Q {L.tipoParams := push(E.tipo, Q.tipoParams), L.nParams = Q.nParams + 1}
+		
+L -> lambda {L.tipoParams = push(vacio, nuevaLista()), L.nParams := 0}
+
+Q -> , E Q1 {Q.tipoParams := push(E.tipo, Q1.tipoParams), 
+		Q.nParams := Q1.nParams + 1}
+			
+Q -> lambda {Q.tipoParams := push(vacio, nuevaLista()), Q.nParams := 0} 
+
+/* PREGUNTA: ¿Es obligatorio que todos los no terminales tengan que tener attr. tipo? */
+X -> E {X.tipoRet := E.tipo}
+
+X -> lambda {X.tipoRet := vacio}
+
+E -> E1 && R {E.tipo := 
+				if (E1.tipo = R.tipo) {
+					if (R.tipo = log) 
+						then ent
+					else {
+						Error('Los operandos deben ser de tipo logico')
+						then tipo_err
+					}
+				} else {
+					Error('Los operandos deben ser mismo tipo')
+					then tipo_err
+				}}
+
+E -> R {E.tipo := R.tipo}
+
+R -> R1 == U {R.tipo := 
+				if (R1.tipo = U.tipo) {
+					if (U.tipo = ent) 
+						then log
+					else {
+						Error('Los operandos deben ser de tipo entero')
+						then tipo_err
+					}
+				} else {
+					Error('Los operandos deben ser mismo tipo')
+					then tipo_err
+				}}
+
+R -> U {R.tipo := U.tipo}
+
+U -> U1 + V {U.tipo := 
+				if (U1.tipo = V.tipo) {
+					if (V.tipo = ent) 
+						then ent
+					else {
+						Error('Los operandos deben ser de tipo entero')
+						then tipo_err
+					}
+				} else {
+					Error('Los operandos deben ser mismo tipo')
+					then tipo_err
+				}}
+
+U -> V {U.tipo := V.tipo}
+
+V -> id {V.tipo := buscaTipoTS(id.pos)}
+
+V -> ( E ) {V.tipo := E.tipo}
+
+V -> ent {V.tipo := ent}
+
+V -> id
+	( L ){id.tipo := buscaTipoTS(id.pos),
+			V.tipoParams = buscaTipoParams(id.pos),
+			V.nParams = buscaNParams(id.pos),
+			V.tipo := if (id.tipo != funcion) {
+					insertaTipoTS(id.pos, tipo_err)
+					Error('Llamada una funcion que no ha sido declarada previamente')
+					then tipo_err
+				}
+					else if (V.nParams != L.nParams) {
+						Error('El numero de argumentos no corresponde con los definidos en esta funcion')
+						then tipo_err
+					}
+				
+					for (i = 0; i < S.nParams; i++) {
+						if (L.tipoParams(i) = tipo_err) {
+							then tipo_err
+						} else if (S.tipoParams(i) != L.tipoParams(i)) {
+							Error('El tipo de los argumentos no corresponde con los definidos en esta funcion')
+							then tipo_err
+						}
+					}
+					
+					then buscaTipoRet(id.pos)
+			}
+
+V -> cad {V.tipo := cad}

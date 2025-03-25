@@ -1,0 +1,14 @@
+function int suma (int num1, int num2) {
+    if (num1 == 0) {
+        return num2;
+    } else {
+        return num1;
+    } 
+    return suma(num1+num2, num2); 
+}
+
+function void main (void) {
+    input a;
+    input b;
+    output suma(a, b);
+}

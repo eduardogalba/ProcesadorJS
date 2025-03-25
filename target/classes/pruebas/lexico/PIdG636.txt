@@ -1,0 +1,24 @@
+var int a ;
+var  int   b  ;
+var boolean bbb ;
+a = 3;
+b=a					    		 	 	 	 	 	 	 	 	 	 	 	 	 	 	 													;
+var  boolean  c  
+;
+
+c = a == b;
+if (c) b = 1;
+c = b == a;
+if (c) b = 4;
+
+var int aaaa;
+var string ssss;
+var boolean bbbb;
+
+
+aaaa = 55  . 
+
+
+var int  zX_ExP;a = a + b;
+output a ;
+output b;

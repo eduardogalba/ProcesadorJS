@@ -1,0 +1,56 @@
+TABLA PRINCIPAL # 0 : 
+* LEXEMA : 'main'
+  Atributos : 
+  + tipo : 		'tipo_error'
+   + numParam : 		1
+    + TipoParam01 : 'vacio'
+     + ModoParam01 : '1'
+    + Tipo de retorno : 'tipo_error'
+   + EtiqFuncion : 'etiq_main'
+* LEXEMA : 'a'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		0
+* LEXEMA : 'b'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		2
+* LEXEMA : 'ret_suma_'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		4
+* LEXEMA : 'suma'
+  Atributos : 
+  + tipo : 		'tipo_error'
+   + numParam : 		2
+    + TipoParam01 : 'ent'
+     + ModoParam01 : '1'
+    + TipoParam02 : 'ent'
+     + ModoParam02 : '1'
+    + Tipo de retorno : 'tipo_error'
+   + EtiqFuncion : 'etiq_suma'
+* LEXEMA : 'ret'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		8
+* LEXEMA : 'padrino'
+  Atributos : 
+  + tipo : 		''
+  + despl : 		0
+------------------------------
+TABLA de la FUNCION main # 1 : 
+------------------------------
+TABLA de la FUNCION suma # 2 : 
+* LEXEMA : 'num1'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		2
+* LEXEMA : 'num2'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		0
+* LEXEMA : 'b'
+  Atributos : 
+  + tipo : 		'ent'
+  + despl : 		4
+------------------------------

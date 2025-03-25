@@ -1,0 +1,10 @@
+var int d;
+function int suma (int a, int b) {
+    function int resta (int b, int c) {
+        return b-c;
+    } 
+    var int d;
+    d = resta(5, a);
+
+    return b+d;
+}
